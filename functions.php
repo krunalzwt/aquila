@@ -15,6 +15,7 @@ if (!defined('AQUILA_DIR_PATH')) {
 }
 
 require_once AQUILA_DIR_PATH . '\inc\helpers\autoloader.php';
+require_once AQUILA_DIR_PATH . '\inc\helpers\template-tags.php';
 function AQUILA_get_theme_instance()
 {
     \AQUILA_THEME\Inc\AQUILA_THEME::get_instance();
@@ -30,3 +31,7 @@ function AQUILA_enque_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'AQUILA_enque_scripts');
+
+
+// Gutenberg disable
+add_filter('use_block_editor_for_post', '__return_false', 10);
